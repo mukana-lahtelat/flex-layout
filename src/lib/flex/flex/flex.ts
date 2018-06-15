@@ -218,7 +218,8 @@ export class FlexDirective extends BaseDirective implements OnInit, OnChanges, O
         basis = 'auto';
         break;
       case 'grow':
-        basis = '100%';
+        // ie fix
+        basis = 'auto';
         break;
       case 'noshrink':
         shrink = 0;
