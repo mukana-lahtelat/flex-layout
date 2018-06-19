@@ -252,12 +252,16 @@ export class FlexDirective extends BaseDirective implements OnInit, OnChanges, O
           css = extendObject(clearStyles, {
             'flex-grow': grow,
             'flex-shrink': shrink,
-            'flex-basis': isValue ? basis : '100%'
+            'flex-basis': isValue ? basis : 'auto'
           });
         } else {
           css = extendObject(clearStyles, {
-            'flex': `${grow} ${shrink} ${isValue ? basis : '100%'}`
+            'flex': `${grow} ${shrink} ${isValue ? basis : 'auto'}`
           });
+        }
+
+        if (basis === '100%') {
+          basis = 'auto';
         }
 
         break;
